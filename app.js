@@ -1,68 +1,160 @@
+
+//Data Information
+
+let subjects = ['CSS', 'HTML', 'JS'];
+
 let students = [
-   {
-       name: "Giorgi",
-       math: 68,
-       physics: 60,
-       js: 100,
-       
-   },
-   {
-       name: "Luka",
-       math: 88,
-       physics: 50,
-       js: 60,
-       
-   },
-   {
-       name: "Zura",
-       math: 60,
-       physics: 35,
-       js: 100,
-       
-   },
+    {
+        name: "giorgi",
+        points: [33,60,80]
+    },
+    {
+        name: "Levani",
+        points: [65,20,60]
+    },
+    {
+        name: "Zura",
+        points: [58,45,90]
+    },
+    {
+        name: "Mariami",
+        points: [50,80,100]
+    },
 ];
 
+//Variabales init
+
+let thead = document.getElementById('thead');
 let tbody = document.getElementById('tbody');
-let mathAvrage = 0;
-let physicsAvrage = 0;
-let jsAvrage = 0;
-let Avrage = [];
+let addContainer = document.getElementById('addContainer');
+let addSubject = document.getElementById('addSubject');
+let inputContainer = document.getElementById('inputContainer');
+let check = true;
+let tmp = '';
 
-students.map((student) => {
-    mathAvrage = student.math + mathAvrage;
-    physicsAvrage = student.physics + physicsAvrage;
-    jsAvrage = student.js + jsAvrage;
-});
+//Table Head innit in html
 
-Avrage.push(mathAvrage/students.length,physicsAvrage/students.length,jsAvrage/students.length);
+function theadInit() {
+    let tr = document.createElement('tr');
+    for (let i=0; i<subjects.length; i++) {
+            tmp += `<th> ${subjects[i]} </th>`
+         };
+    thead.appendChild(tr);
+    tr.innerHTML = `<th>Name</th>`
+    tr.innerHTML += tmp;
+}
 
-function addtr(arr) {
-        for (let i=0; i<arr.length; i++) {
-            var row =
-              `<tr>
-                 <td>${arr[i].name}</td>
-                 <td>${arr[i].math}</td>
-                 <td>${arr[i].physics}</td>
-                 <td>${arr[i].js}</td>
-               </tr>`;
+theadInit();
 
-               tbody.innerHTML += row;
+// Table Tbody innit
+
+function tbodyInit() {
+    
+      for (let i=0; i<students.length; i++) {
+          tmp ='';
+          let tr = document.createElement('tr');
+          let del = document.createElement('span');
+          tmp += `<th>
+                     ${students[i].name}
+                 </th>`
+          for (let j=0; j<students[i].points.length; j++) {
+
+              tmp += `
+                         <th class="${students[i].points[j] > 50 ? "green" : "red" }">
+                              ${students[i].points[j]}
+                         </th>
+                      `
+          } 
+
+         tr.innerHTML = tmp;
+         tbody.appendChild(tr);
+         del.innerText = 'X';
+         tr.appendChild(del)
+         del.classList.add('span')
+      }
+}
+
+tbodyInit();
+
+//binputs innit and  inner html
+
+function inputInit() {
+    tmp='';
+    for (let i=0; i<subjects.length+1; i++) {
+        let input = document.createElement('input');
+        input.classList.add('input')
+        inputContainer.appendChild(input)
+        if (check === true) {
+            input.type = 'text';
+            check = false;
         }
-        
-        let tr = document.createElement('tr');
-        tr.innerHTML = `<td>Avarage</td>`
-        tbody.appendChild(tr);
-        for (let j=0; j<Avrage.length; j++) {
-            let th = document.createElement('th');
-            tr.appendChild(th)
-            th.innerText =Math.floor( Avrage[j]);
-            if (Avrage[j]<50) {
-                th.classList.add('redbg');
-            }
-            else {
-                th.classList.add('greenbg')   
-            }
+        else {
+            input.type = 'number';
         }
-};
+    }
+    addSubject.innerHTML = `<button id="sub-btn">Add Sub</button>
+                            <input id='subInput' value=""  placeholder="Enter Subject">            
+                            `
+    tmp = `<button id="btn">Add</Submit>`;
+    addContainer.innerHTML += tmp;
+}
 
-addtr(students);
+inputInit();
+
+//add input values in table
+
+function addTable() {
+    tmp ='';
+    let tr = document.createElement('tr');
+    let input = document.querySelectorAll('.input');
+    let del = document.createElement('span');
+    del.classList.add('span')
+    for (let i=0; i<input.length; i++) {
+        tmp += `<th class="${input[i].value > 50 ? "green" : "red" }">${input[i].value}</th>`;
+    }
+    tr.innerHTML += tmp;
+    tbody.appendChild(tr)
+    del.innerText = 'X';
+    del.classList.add('span')
+    tr.appendChild(del)
+    deleteRow();
+}
+
+let btn = document.getElementById('btn');
+let subBtn = document.getElementById('sub-btn');
+let subInput = document.getElementById('subInput');
+let theadTr = document.querySelectorAll('#thead tr')
+
+btn.addEventListener('click', addTable);
+
+
+// Delete Row
+
+function deleteRow(span) {
+        let rows = document.querySelectorAll('#tbody tr');
+        let spans = document.querySelectorAll('.span');
+    
+            for (let i=0; i<spans.length; i++) {
+                spans[i].addEventListener('click', () => {
+                    tbody.removeChild(rows[i])
+                    console.log(rows[i])
+                })
+            }
+}
+
+deleteRow();
+
+//add Subjects
+
+function addSub() {
+    subBtn.addEventListener('click', () => {
+            subjects.push(subInput.value);
+            theadTr[0].innerHTML += `<th>${subInput.value}</th>`;
+            inputContainer.innerHTML += `<input class="input" type="text">`;
+            console.log(inputContainer)
+            subInput.value = "";
+    })
+}
+
+addSub();
+

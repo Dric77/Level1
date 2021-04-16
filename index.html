@@ -5,48 +5,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 <style>
     * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
     }
-    table {
-        width: 800px;
+    table th {
+        min-width: 159px;
+        min-height: 30px;
+        border: 2px solid black;
+        padding: 10px;
+        font-size: 15px;
+    }
+    table thead tr th {
+        background-color: coral;
+    }
+    table tbody th:first-child {
+        background-color: darkcyan;
+    }
+    .input {
+        min-height: 30px;
+        margin-top: 20px;
+    }
+    #btn {
         height: auto;
-    }
-    .tr th,td{
-        border: 2px solid black;
-        border-collapse: collapse;
-        padding: 10px;
+        padding: 5px;
         text-align: center;
+        font-weight: bold;
+        font-size: 14px;
+        background-color:rgb(39, 226, 39);
+        color: black;
+        margin: 0 auto;
+        cursor: pointer;
+        transition: ease-out 0.3s;
     }
-    .redbg{
+    tbody tr span {
         background-color: red;
+        font-size: 15px;
+        padding: 5px;
+        margin-left: 20px;
+        margin-top: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: ease-in 0.2s;
     }
-    .greenbg {
-        background-color: green;
-        border: 2px solid black;
-        border-collapse: collapse;
-        padding: 10px;
-        text-align: center;
+    tbody tr span:hover {
+        padding: 6px;
+        border-radius: 0px;
+    }
+    .addsub {
+        margin-top: 20px;
+    }
+    .green {
+        background-color: rgb(71, 255, 47);
+    }
+    .red {
+        background-color: rgb(250, 50, 50);
     }
 </style>
 </head>
 <body>
     <main>
-        <table id="table">
-            <tbody id="tbody">
-                <tr id="tr-head" class="tr">
-                    <th>Name</th>
-                    <th>Math</th>
-                    <th>physics</th>
-                    <th>js</th>
-                </tr>
-            </tbody>
+        <table>
+            <thead id="thead"></thead>
+            <tbody id="tbody"></tbody>
         </table>
+        <div id="addSubject" class="addsub"></div>
+        <div id="addContainer">
+            <div id="inputContainer"></div>
+        </div>
     </main>
 
-<script src="./app.js" ></script>
+<script src="./app.js"></script>
 </body>
 </html>
