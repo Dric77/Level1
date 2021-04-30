@@ -1,68 +1,92 @@
 let students = [
-   {
-       name: "Giorgi",
-       math: 68,
-       physics: 60,
-       js: 100,
-       
-   },
-   {
-       name: "Luka",
-       math: 88,
-       physics: 50,
-       js: 60,
-       
-   },
-   {
-       name: "Zura",
-       math: 60,
-       physics: 35,
-       js: 100,
-       
-   },
+    {
+        name: "Nika",
+        points: [55,70,49]
+    },
+    {
+        name: "Mari",
+        points: [55,22,100]
+    },
+    {
+        name: "Ana",
+        points: [40,51,49]
+    },
 ];
 
+let subjects = ['JS', 'HTML', 'CSS'];
+
+
+
+let tmp = '';
+let avrage = [];
+let thead = document.getElementById('thead');
 let tbody = document.getElementById('tbody');
-let mathAvrage = 0;
-let physicsAvrage = 0;
-let jsAvrage = 0;
-let Avrage = [];
+let Inputs = document.getElementById('Inputs');
+let addStudent = document.getElementById('addStudent');
 
-students.map((student) => {
-    mathAvrage = student.math + mathAvrage;
-    physicsAvrage = student.physics + physicsAvrage;
-    jsAvrage = student.js + jsAvrage;
-});
+class Init {
+    constructor (sub) {
+        this.sub = sub;
+        tmp += `<th>Name</th>`
+        sub.map((subj) => {
+            tmp += `<th>
+                        ${subj}  
+                   </th>`
+        })
 
-Avrage.push(mathAvrage/students.length,physicsAvrage/students.length,jsAvrage/students.length);
+        thead.innerHTML += tmp;
+    };
 
-function addtr(arr) {
-        for (let i=0; i<arr.length; i++) {
-            var row =
-              `<tr>
-                 <td>${arr[i].name}</td>
-                 <td>${arr[i].math}</td>
-                 <td>${arr[i].physics}</td>
-                 <td>${arr[i].js}</td>
-               </tr>`;
-
-               tbody.innerHTML += row;
+    inputInit(sub) {
+        tmp = '';
+        for (let i=0; i<this.sub.length; i++) {
+            tmp += `<input>`
         }
-        
-        let tr = document.createElement('tr');
-        tr.innerHTML = `<td>Avarage</td>`
-        tbody.appendChild(tr);
-        for (let j=0; j<Avrage.length; j++) {
-            let th = document.createElement('th');
-            tr.appendChild(th)
-            th.innerText =Math.floor( Avrage[j]);
-            if (Avrage[j]<50) {
-                th.classList.add('redbg');
-            }
-            else {
-                th.classList.add('greenbg')   
-            }
-        }
+
+        Inputs.innerHTML += tmp;
+    };
+
 };
+class tbodyInit {
+    constructor (student) {
+        this.student = student;
 
-addtr(students);
+        student.map((stud) => {
+            tmp = '';
+            tmp += `<th>
+                        ${stud.name}  
+                   </th>`;
+            stud.points.map((point) => {
+                tmp += `<th class=${point>51 ? 'green' : 'red'}>
+                        ${point}  
+                   </th>`;
+            });
+            
+            tbody.innerHTML += tmp;
+
+        })};
+
+        addRow() {
+            console.log("clicked")
+        }
+}
+
+let head = new Init(subjects);
+let body = new tbodyInit(students);
+
+head.inputInit();
+
+let addrow = body.addRow;
+
+function a() {
+    console.log('hii')
+}
+
+addStudent.addEventListener('click', () => {
+    console.log('from event')
+})
+
+// class addRoow {
+//     constructor()
+
+// }
