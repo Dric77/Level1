@@ -1,0 +1,131 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    text-decoration: none;
+    color: black;
+}
+
+main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#searchContainer {
+    width: 50%;
+    height: auto;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 500px;
+}
+#searchInput {
+    width: 70%;
+    height: 30px;
+    outline: none;
+    border: 1px solid black;
+    font-size: 18px;
+    padding: 5px;
+    color: black;
+}
+#searchInput::placeholder {
+    font-size: 15px;
+    color: black;
+    transition: ease-in .2s;
+}
+#searchInput:hover::placeholder {
+    font-size: 13px;
+    opacity: 70%;
+}
+#searchBtn {
+    width: 25%;
+    height: 30px;
+    background-color: coral;
+    color: black;
+    border: none;
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer;
+    transition: ease-out .3s;
+}
+#searchBtn:hover {
+    transform: scale(0.98);
+    border-radius: 10px;
+    background-color: rgb(255, 150, 112);
+}
+#rsultContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.artist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.artist *{
+    margin: 10px;
+}
+.artist .tittle{
+    font-size: 35px;
+    color: black;
+}
+.artist .id {
+    font-size: 20px;
+}
+.trackPreview {
+    font-size: 20px;
+}
+.firstrow{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.song {
+    width: 100%;
+    height: auto;
+    margin: 5px;
+}
+.song *{
+    margin: 5px;
+    align-self:center;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.song .tittle a{
+    display: flex;
+    justify-content: space-around;
+}
+.song .tittle *{
+    border: none;
+    transition: ease-out 0.3s;
+}
+.song .tittle a span {
+    font-size: 20px;
+}
+.song .tittle a:hover {
+    transform: scale(1.1);
+}
+.artist a {
+    text-decoration: none;
+    border: none;
+}
+.openSong {
+    background-color: rgb(255, 176, 147);
+    padding: 10px;
+    font-size: 15px;
+    transition: ease-in-out .3s;
+}
+.openSong:hover {
+    font-size: 17px;
+    background-color: rgb(255, 153, 116);
+}
