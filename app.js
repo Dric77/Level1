@@ -49,7 +49,9 @@ function findResults(searchWord) {
             <th class='artist'>
               <a href=${track.artistViewUrl} target='_blank' >${track.artistName}</a>
             </th>
-            <th class='id'>${track.collectionId}</th>
+            <th 
+                class='id'>${track.collectionId}
+            </th>
             <th class='audio'>
                 <audio controls>
                      <source src="${track.previewUrl}">
