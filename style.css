@@ -101,20 +101,6 @@ main {
     border: 1px solid black;
     border-radius: 10px;
 }
-.song .tittle a{
-    display: flex;
-    justify-content: space-around;
-}
-.song .tittle *{
-    border: none;
-    transition: ease-out 0.3s;
-}
-.song .tittle a span {
-    font-size: 20px;
-}
-.song .tittle a:hover {
-    transform: scale(1.1);
-}
 .artist a {
     text-decoration: none;
     border: none;

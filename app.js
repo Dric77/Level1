@@ -38,20 +38,15 @@ function findResults(searchWord) {
                         <th>Result:${data.resultCount}</th>
                     </tr>`;
          data.results.map((track) => {
-             console.log(track.artworkUrl100)
           tmp += `<tr class='song'>
             <th class='tittle'>
-                  <a href=${track.artistViewUrl} target='_blank'>
-                    <span> ${track.trackName} </span>
-                    <img src="${track.artworkUrl100}">
-                  </a>
+                    ${track.trackName}
+                    <img src="${track.artworkUrl160}>"
             </th>
             <th class='artist'>
               <a href=${track.artistViewUrl} target='_blank' >${track.artistName}</a>
             </th>
-            <th 
-                class='id'>${track.collectionId}
-            </th>
+            <th class='id'>${track.collectionId}</th>
             <th class='audio'>
                 <audio controls>
                      <source src="${track.previewUrl}">
@@ -85,4 +80,10 @@ window.onload = () => {
             findResults(searchInput.value)
         }, 300)
     })
+}
+
+
+function playPreview(prevUrl) {
+    let audio = new audio("https://music.apple.com/us/album/im-going-slightly-mad/1440650428?i=1440651677&uo=4");
+    audio.playPreview();
 }
