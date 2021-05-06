@@ -2,6 +2,8 @@ let searchInput = document.getElementById('searchInput');
 let rsultContainer = document.getElementById('rsultContainer');
 let searchBtn = document.getElementById('searchBtn');
 
+let searchTime = 0;
+let allData = '';
 let tmp = '';
 
 function findResults(searchWord) {
@@ -9,6 +11,7 @@ function findResults(searchWord) {
     fetch(url)
     .then(response => response.json())
     .then((data) => {
+        allData = data;
        data.results.map((element) => {
         rsultContainer.innerHTML = '';
         console.log(element)
@@ -26,49 +29,49 @@ function findResults(searchWord) {
         rsultContainer.innerHTML += tmp;
         
 
-    })
-        searchBtn.addEventListener('click', showSongs)
-        
-       function showSongs() {
-            tmp = `<tr class="firstrow">
-                        <th>Song</th>
-                        <th>Artist</th>
-                        <th>Music Id</th>
-                        <th>Quick Preview Track</th>
-                        <th>Result:${data.resultCount}</th>
-                    </tr>`;
-         data.results.map((track) => {
-          tmp += `<tr class='song'>
-            <th class='tittle'>
-                    ${track.trackName}
-                    <img src="${track.artworkUrl160}>"
-            </th>
-            <th class='artist'>
-              <a href=${track.artistViewUrl} target='_blank' >${track.artistName}</a>
-            </th>
-            <th class='id'>${track.collectionId}</th>
-            <th class='audio'>
-                <audio controls>
-                     <source src="${track.previewUrl}">
-                 </audio>
-            </th>
-            <th><a class='openSong' target='_blank' href="${track.trackViewUrl}" >Open Song</a></th>
-            </tr>`
-        })
-
-        rsultContainer.textContent = '';
-        rsultContainer.innerHTML = `<table class='table'>` + tmp + `</table>` ;
-        }
-
-    })
+    })})
     .catch((error) => {
         console.log('error')
     })
 };
 
+        
+function showSongs(data) {
+    data = allData;
+    
+     tmp = `<tr class="firstrow">
+                 <th>Song</th>
+                 <th>Artist</th>
+                 <th>Music Id</th>
+                 <th>Quick Preview Track</th>
+                 <th>Result:${data.resultCount}</th>
+             </tr>`;
+  data.results.map((track) => {
+   tmp += `<tr class='song'>
+     <th class='tittle'>
+             ${track.trackName}
+             <img src="${track.artworkUrl160}>"
+     </th>
+     <th class='artist'>
+       <a href=${track.artistViewUrl} target='_blank' >${track.artistName}</a>
+     </th>
+     <th class='id'>${track.collectionId}</th>
+     <th class='audio'>
+         <audio controls>
+              <source src="${track.previewUrl}">
+          </audio>
+     </th>
+     <th><a class='openSong' target='_blank' href="${track.trackViewUrl}" >Open Song</a></th>
+     </tr>`
+ })
 
-let searchTime = 0;
+ rsultContainer.textContent = '';
+ rsultContainer.innerHTML = `<table class='table'>` + tmp + `</table>` ;
+ }
 
+ searchBtn.addEventListener('click', showSongs);
+
+ 
 window.onload = () => {
     searchInput.addEventListener('keydown', () => {
 
@@ -80,10 +83,4 @@ window.onload = () => {
             findResults(searchInput.value)
         }, 300)
     })
-}
-
-
-function playPreview(prevUrl) {
-    let audio = new audio("https://music.apple.com/us/album/im-going-slightly-mad/1440650428?i=1440651677&uo=4");
-    audio.playPreview();
 }
