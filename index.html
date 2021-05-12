@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Slider</title>
+</head>
+<body>
+    <header>
+        <div id="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li id="cancel">X</li>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="slideContainer">
+            <button id="left" class="slideBtn"><</button>
+            <div class="imgs" id="imgLoader">
+            </div>
+            <button id="right" class="slideBtn">></button>
+        </div>
+
+        <div class="modal" id="modalContainer">
+            <div class="header">
+                <h1>Cristiano Ronaldo Say:</h1>
+                <button id="cancelModal">X</button>
+            </div>
+            <div class="main">
+                <div>Seeeeeee</div>
+            </div>
+            <div class="footer">
+                <button id="close">Close</button>
+                <button id="save">Save</button>
+            </div>
+        </div>
+        <button id="modalBtn" class="btn">Test Modal</button>
+    </main>
+    <div id="blocker"></div>
+
+    <script src="./app.js"></script>
+</body>
+</html>
