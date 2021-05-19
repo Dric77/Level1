@@ -1,0 +1,57 @@
+
+:root {
+  --orange: #ff4c3b;
+}
+.orange {
+  color: #ff4c3b;
+}
+.btn-color-orange {
+  background-color: #ff4c3b;
+  color: white;
+  border-radius: 0;
+}
+btn-color-orange:hover {
+  background-color: white;
+  color: black;
+  border-radius: 2px solid var(--orange);
+}
+header {
+  margin-top: 10px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header-text-size {
+  font-size: 14px;
+}
+.main-nav li a {
+  font-size: 25px;
+  margin-right: 10px;
+}
+.icons {
+  font-size: 25px;
+}
+.icons i {
+  margin: 10px;
+}
+.slider-height {
+  max-height: 350px;
+  height: 350px;
+  width: 100%;
+  overflow: hidden;
+  border: 2px solid black;
+}
+.sm-line {
+  width: 100px;
+  height: 5px;
+  background-color: var(--orange);
+  margin: 10px auto;
+}
+.card-slider {
+  position: relative;
+}
+.active-btn {
+  color: #ff4c3b;
+}
