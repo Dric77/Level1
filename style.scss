@@ -1,0 +1,101 @@
+@use "sass:math";
+
+$mainColor : #ff4c3b;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.mainColor {
+    color: $mainColor;
+}
+.sm-line {
+    width: 150px;
+    height: 3px;
+    margin: auto;
+    background-color: $mainColor;
+}
+
+main {
+    .slider-height {
+        height: 450px;
+        overflow: hidden;
+    }
+    .carousel-item img{
+        margin: auto;
+    }
+    .cardTextLeft {
+        top: 25%;
+        right: -55%;
+    }
+    .animationCard {
+        overflow: hidden;
+        &:hover {
+            img {
+                transform: scale(1.05);
+                transition: ease-out 0.5s;
+            }
+        }
+    }
+   .parllax {
+        background-image: url("http://themes.pixelstrap.com/multikart/assets/images/parallax/1.jpg");
+        width: 100%;
+        height: 400px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+   }
+   .animation:hover {
+       i ,h3{
+           transform: scale(1.1);
+           transition: ease-out 0.3s; 
+       }
+   }
+   .modal-content {
+       width: 800px;
+       height: 400px;
+       background-color: rgb(255, 255, 255);
+       border: 3px solid $mainColor;
+       position: absolute;
+       z-index: 2;
+       left: 50%;
+       top: -500px;
+       transform: translate(-50%, -50%);
+       display: flex;
+       align-items: center;
+       transition: ease-in-out 0.4s;
+
+       .modal-header img {
+           width: 750px;
+       }
+
+       .modal-main {
+           color: black;
+
+           input {
+               height: 30px;
+           }
+           button {
+               width: 200px;
+               height: 60px;
+               background-color: $mainColor;
+               border: none;
+               margin: auto;
+               color: wheat;
+               cursor: pointer;
+           }
+       }
+   }
+   .imgs-row {
+       width: 100%;
+       img {
+           width: calc(100% / 7);
+          
+       }
+   }
+}
