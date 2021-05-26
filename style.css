@@ -117,4 +117,49 @@ main .imgs-row {
 main .imgs-row img {
   width: calc(100% / 7);
 }
+
+.result-show {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.result-show li img {
+  width: 18px;
+}
+
+.sidebar {
+  height: 1500px;
+  width: 100%;
+}
+
+.sidebar .colappse-btn {
+  width: 100%;
+}
+
+.sidebar .colappse-btn * {
+  color: black;
+}
+
+.sidebar .card {
+  background-color: #f8f9fa;
+  border: none;
+}
+
+.sidebar .content div label {
+  font-size: 13px;
+}
+
+.sidebar .content div input {
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+}
+
+.result-show li img {
+  height: 30px;
+  width: auto;
+  padding: 0.25rem;
+}
 /*# sourceMappingURL=style.css.map */

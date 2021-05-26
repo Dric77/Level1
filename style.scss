@@ -99,3 +99,50 @@ main {
        }
    }
 }
+
+
+// product page style
+
+.result-show  {
+    list-style: none;
+    display: flex;
+
+    li img {
+        width: 18px;
+    }
+}
+.sidebar {
+    height: 1500px;
+    width: 100%;
+    .colappse-btn {
+        width: 100%;
+        * {
+            color: black;
+        }
+    }
+    .card {
+        background-color: #f8f9fa;
+        border: none;
+    }
+    .content {
+        div {
+            label {
+                font-size: 13px;
+            }
+            input {
+                width: 15px;
+                height: 15px;
+                border-radius: 2px;
+            }
+        }
+    }
+}
+// .product-img {
+//     max-height: 17rem;
+//     width: auto;
+// }
+.result-show li img{
+    height: 30px;
+    width: auto;
+    padding: 0.25rem;
+}
