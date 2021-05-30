@@ -3,11 +3,11 @@
 $mainColor : #ff4c3b;
 $darkBackghround : rgb(61, 61, 61);
 
-* {
-    margin: 0;
-    padding: 0;
+.list-style-none {
+    li {
+        list-style: none;
+    }
 }
-
 .mainColor {
     color: $mainColor;
 }
@@ -22,6 +22,22 @@ $darkBackghround : rgb(61, 61, 61);
 }
 .darkBg {
     background-color: $darkBackghround !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
 main {
@@ -201,7 +217,7 @@ main {
 //media
 
 @media (max-width: 994px) {
-  .sidebar {
+  .hide-sidebar {
       left: -1500px;
       position: absolute;
   }

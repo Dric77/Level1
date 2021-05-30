@@ -1,7 +1,6 @@
 @use "sass:math";
-* {
-  margin: 0;
-  padding: 0;
+.list-style-none li {
+  list-style: none;
 }
 
 .mainColor {
@@ -21,6 +20,11 @@
 
 .darkBg {
   background-color: #3d3d3d !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 main .btn-change {
@@ -227,7 +231,7 @@ main .imgs-row img {
 }
 
 @media (max-width: 994px) {
-  .sidebar {
+  .hide-sidebar {
     left: -1500px;
     position: absolute;
   }
