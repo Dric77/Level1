@@ -208,19 +208,15 @@ priceRange.addEventListener('input', () => {
 for (let li in productShows) {
      productShows[li].addEventListener('click', () => {
        if (li == 0) {
-        cardContainer.className ='';
         cardContainer.className = 'row row-cols-2 mt-5'
        }
        if (li == 1) {
-        cardContainer.className ='';
         cardContainer.className = 'row row-cols-3 mt-5'
        }
        if (li == 2) {
-        cardContainer.className ='';
         cardContainer.className = 'row row-cols-4 mt-5'
        }
        if (li == 3) {
-        cardContainer.className ='';
         cardContainer.className = 'row row-cols-5 mt-5'
        }
      })
