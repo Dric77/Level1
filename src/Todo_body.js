@@ -1,26 +1,29 @@
 import React, { useState } from 'react';
+import Input from './Input';
+import TodoList from './TodoList';
 
 
 function TodoBody(props) {
 
-    const [data, setData] = useState([]);
     const [title, setTitle] = useState('');
+    const [data, setData] = useState([]);
     const [editTodos, setEditTodos] = useState('s');
 
     
     let todoList = document.getElementsByClassName('todoList');
     let tmp = '';
-    
-    let handleChange = (e) => {
-       setTitle(e.target.value)
-    }
 
-    let handleSubmit = (e) => {
+    let handleSubmit = (e, index) => {
         e.preventDefault();
         
         setData(
            [
-            title,
+            {
+                title: title,
+                checked: false,
+                id: index,
+                isEditing: false
+            },
             ...data
            ]
         );
@@ -28,22 +31,9 @@ function TodoBody(props) {
         setTitle('');
     }
 
-    let delate = (e, index) => {
-        tmp = data;
-        tmp.splice(index, 1)
-        setData( [...tmp] )
-    }
-
-    let editTodo = (index, el) => {
-        tmp = todoList[index];
-        todoList[index].innerHTML = `<input id="editedInput" type='text' value="${el}" />`;
-        document.getElementById('editedInput').addEventListener('change', (e) => (updateTodo(e)))
-    }
-
     let updateTodo = (e) => {
-        setTitle('sdsfdsa');
-        
-        console.log(title)
+        // tmp = [...data];
+        console.log("dcsa")
     }
 
     return(
@@ -51,29 +41,16 @@ function TodoBody(props) {
             
             <h2 className='title'>Todo({data.length}) </h2>
             <form onSubmit={handleSubmit} className="form" >
-                <input
-                    className="input"
-                    name="tittle"
-                    placeholder="Press enter to add todo"
-                    value={title}
-                    onChange={handleChange}
+                <Input 
+                    className="input" 
+                    title={title} 
+                    setTitle={setTitle}
                 />
-
                 <button type="submit" className='add-btn' >Add Todo</button>
             </form>
+          
+          <TodoList data={data} setData={setData}  />
 
-            <ul className="todos">
-
-                {data.map((el, index) => 
-                    <li className="todoList" key={index} onDoubleClick={() => {editTodo(index,el)}}>
-                        <div className="content">
-                        <input type="checkbox" className="checkbox" />
-                        {el}
-                        </div>
-                        <button className onClick={(e) => {delate(e, index)}}>X</button>
-                    </li> )}
-
-            </ul>
         </div>
     )
 }
