@@ -49,7 +49,10 @@ function TodoBody(props) {
                 <button type="submit" className='add-btn' >Add Todo</button>
             </form>
           
-          <TodoList data={data} setData={setData}  />
+          <TodoList
+            data={data}
+            setData={setData}
+          />
 
         </div>
     )
