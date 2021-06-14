@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$min-color: #f15644;
+
+.row {
+    display: flex;
+    flex-direction: row !important ;
+}
+
+.col-6 {
+    width: 100%;
+}
+
+.mt-1 {
+    margin-top: 10px;
+}
+
+.ul {
+    margin-left: 10px;
+
+    li {
+        list-style: none;
+    }
+}
+
+.App {
+    width: 800px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+
+    
+    .row {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+    }
+
+    header {
+        width: 100%;
+        max-height: 150px;
+        min-height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .search-input {
+            border: 1px solid black;
+            max-width: 50%;
+            min-width: 300px;
+            width: 500px;
+            height: 30px;
+            border-radius: 1px;
+        }
+        .search-btn {
+            width: 150px;
+            height: 30px;
+            border-radius: 10px;
+            background-color: rgb(56, 56, 56);
+            color: white;
+        }
+    }
+
+        .col-4 {
+            width: 100%;
+            flex-grow: 1;
+
+            div {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .city-detail {
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+
+                .city-name {
+                    display: flex;
+                    justify-content: start;
+
+                    h4 {
+                        color: $min-color;
+                    }
+                }
+                
+                .temperature-detail {
+                    display: flex;
+                    justify-content: start;
+                    margin-top: 10px;
+                    
+                    .detail {
+                        border-left: 2px solid black;
+                    }
+                }
+                .main-temperature {
+                    display: flex;
+                    justify-content: start;
+                    flex-direction: row;
+                    align-items: center;
+
+                    img {
+                        width: 80px;
+                    }
+
+                    h2 {
+                        font-size: 35px;
+                    }
+                }
+
+                .feels-like {
+                    display: flex;
+                    flex-direction: row;
+                    font-size: 25px;
+                    font-weight: 300;
+                }
+            }
+
+            .day-forecast {
+                display: flex;
+                justify-content: start;
+
+            }
+
+
+        }
+
+}
